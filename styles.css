@@ -519,27 +519,46 @@ button.photo-stack { cursor: pointer; }
   will-change: transform;
 }
 .thing-card.dragging { transition: none; cursor: grabbing; }
+/* Photo cards: the photo fills the space above, the caption sits in its own bar below
+   so it never overlaps the picture. */
 .thing-card.has-photo {
-  grid-template-rows: minmax(0, 1fr) auto;
-  gap: .9rem;
-  padding: .9rem .9rem 2.6rem;
-  font-size: clamp(1.25rem, 1.05rem + 1vw, 1.6rem);
-  place-items: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: .7rem;
+  padding: .9rem;
+  font-size: clamp(1.2rem, 1rem + 1vw, 1.5rem);
+}
+.card-photo-wrap {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  border-radius: 10px;
+  overflow: hidden;
 }
 .card-photo {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  min-height: 0;
   object-fit: cover;
-  border-radius: 10px;
   pointer-events: none;
 }
-.has-photo .card-text { padding: 0 .4rem; }
+.card-caption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .45rem;
+}
+.has-photo .card-caption {
+  flex: none;
+  padding: .85rem 1.1rem .8rem;
+  border-radius: 10px;
+  background: #fff;
+}
 .thing-card:not(.top) { pointer-events: none; }
 .thing-card .card-heart {
-  position: absolute;
-  bottom: 1.2rem;
-  left: calc(50% - 11px);
+  flex: none;
   width: 22px;
   height: 22px;
   fill: var(--rose);

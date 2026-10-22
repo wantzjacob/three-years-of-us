@@ -512,7 +512,7 @@
     const el = document.createElement("div");
     el.className = "thing-card" + (photo ? " has-photo" : "");
     el.style.setProperty("--card-bg", cardColors[i % cardColors.length]);
-    el.innerHTML = `${photo ? `<img class="card-photo" loading="lazy" draggable="false">` : ""}<span class="card-text"></span><svg class="card-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="${HEART_PATH}"/></svg>`;
+    el.innerHTML = `${photo ? `<div class="card-photo-wrap"><img class="card-photo" loading="lazy" draggable="false"></div>` : ""}<div class="card-caption"><span class="card-text"></span><svg class="card-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="${HEART_PATH}"/></svg></div>`;
     $(".card-text", el).textContent = text;
     if (photo) setPhoto($(".card-photo", el), photo, i, "", text);
     // Optional framing for tall photos, e.g. "center 20%" keeps faces near the top in view.
