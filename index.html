@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Three Years of Us</title>
+  <meta name="description" content="Three years of us, one star at a time.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Gochi+Hand&family=Nunito:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23f6c56a' d='M16 2l3.5 9.5L29 12l-7.5 6.5L24 28l-8-5.5L8 28l2.5-9.5L3 12l9.5-.5z'/%3E%3C/svg%3E">
+</head>
+<body>
+  <canvas id="sky" aria-hidden="true"></canvas>
+
+  <main>
+    <header class="hero" id="top">
+      <div class="hero-text">
+        <p class="names"><span data-me></span> &amp; <span data-her></span></p>
+        <h1 class="title" aria-label="Three years of us">
+          <span class="title-line" data-split>Three years</span>
+          <span class="title-line" data-split>of us</span>
+        </h1>
+        <p class="since"><span data-since>&nbsp;</span> together.</p>
+
+        <div class="game">
+          <p class="howto">Every star in this sky is a memory of us. Tap one to open it.</p>
+          <div class="progress" aria-live="polite">
+            <div class="progress-bar"><span data-progress-fill></span></div>
+            <p><span data-found>0</span> of <span data-total>0</span> memories found</p>
+          </div>
+          <button class="ghost-btn" type="button" data-hint>Show me a hidden one</button>
+        </div>
+      </div>
+
+      <div class="constellation" id="constellation" role="group" aria-label="Memories, arranged as stars">
+        <svg class="lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <polygon class="heart-fill" points=""></polygon>
+        </svg>
+      </div>
+    </header>
+
+    <section class="story" id="story" aria-labelledby="story-title">
+      <h2 id="story-title" class="section-title">How we got here</h2>
+      <ol class="timeline" data-timeline></ol>
+    </section>
+
+    <section class="little" id="little" aria-labelledby="little-title">
+      <h2 id="little-title" class="section-title">Little things I love</h2>
+      <p class="section-sub">Drag a card away to see the next one.</p>
+      <div class="deck" data-deck></div>
+      <div class="deck-controls">
+        <span class="deck-count" data-deck-count aria-live="polite"></span>
+        <button class="ghost-btn" type="button" data-deck-next>Next card</button>
+      </div>
+    </section>
+
+    <section class="letter-section" id="letter" aria-labelledby="letter-title">
+      <h2 id="letter-title" class="section-title">One more thing</h2>
+
+      <div class="envelope-wrap" data-envelope-wrap>
+        <div class="envelope" data-envelope>
+          <div class="env-back"></div>
+          <div class="env-paper"><span>For <span data-her></span></span></div>
+          <div class="env-front"></div>
+          <div class="env-flap"></div>
+          <button class="seal" type="button" data-open-letter disabled aria-describedby="lock-msg">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.3 3 4.5 6.7 4.5c2.1 0 3.6 1.2 4.3 2.5h2c.7-1.3 2.2-2.5 4.3-2.5 3.7 0 5.8 3.8 4.3 7.2C19.5 16.4 12 21 12 21z"/></svg>
+            <span class="sr-only">Open your letter</span>
+          </button>
+        </div>
+        <p class="lock-msg" id="lock-msg" data-lock-msg></p>
+      </div>
+
+      <article class="letter" data-letter hidden>
+        <p class="letter-greeting" data-letter-greeting></p>
+        <div class="letter-body" data-letter-body></div>
+        <p class="letter-signoff"><span data-letter-signoff></span><br><span class="letter-name" data-me></span></p>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <p>Happy three years, <span data-her></span>.</p>
+      <button class="text-btn" type="button" data-reset>Hide the stars again</button>
+    </footer>
+  </main>
+
+  <dialog class="memory" data-memory aria-labelledby="memory-title">
+    <div class="memory-card" data-memory-card>
+      <figure class="polaroid" data-polaroid>
+        <div class="polaroid-photo"><img data-memory-img alt=""></div>
+        <figcaption class="polaroid-note" data-memory-note></figcaption>
+      </figure>
+      <div class="memory-text">
+        <p class="memory-meta" data-memory-meta></p>
+        <h3 class="memory-title" id="memory-title" data-memory-title></h3>
+        <p class="memory-story" data-memory-story></p>
+        <div class="memory-nav">
+          <button class="ghost-btn" type="button" data-memory-prev>Previous</button>
+          <button class="ghost-btn" type="button" data-memory-next>Next</button>
+          <button class="solid-btn" type="button" data-memory-close>Back to the sky</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast" data-toast role="status" aria-live="polite"></div>
+
+  <script src="memories.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

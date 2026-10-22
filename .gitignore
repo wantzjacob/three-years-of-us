@@ -1,0 +1,7 @@
+# Original full-size photos and videos stay on this computer; the site uses images/web.
+/images/*
+!/images/web/
+
+# Local editor settings
+.claude/
+.DS_Store
